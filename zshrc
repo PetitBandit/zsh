@@ -53,6 +53,8 @@ bindkey '\e[1~' beginning-of-line  # Debut
 bindkey '\e[4~' end-of-line        # fin
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+# bindkey '^K' history-substring-search-up
+# bindkey '^J' history-substring-search-down
 #ALIAS
 #
 #
@@ -135,7 +137,7 @@ setopt autocd                      # Typing cd every time is boring
 setopt complete_aliases
 #PLUGINS
 source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 source /$HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
 
