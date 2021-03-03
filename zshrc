@@ -130,22 +130,21 @@ function setprompt()
 
     if [ -n "$SSH_CLIENT" ]
     then
-        infoline+=( "${fg[red]%}%m" )
+        infoline+=( "%{$fg[red]%}%m" )
 
     else
-        infoline+=( "${fg[blue]%}%m" )
-
+        infoline+=( "%{$fg[blue]%}%m" )
     fi
 
     # Display time.
-    infoline+=( "%{$fg[cyan]%}┣━┫${fg_white}%T" )
+    infoline+=( "%{$fg[cyan]%}┣━┫%{$fg[default]%}%T" )
 
     # Display the numbers of jobs suspended or running in background.
-    infoline+=( "%(1j.%{$fg[cyan]%}???%{$fg[yellow]%}%j.)" )
+    infoline+=( "%(1j.%{$fg[cyan]%}┣━┫%{$fg[yellow]%}%j.)" )
 
     # Display git info.
     infoline+=( "$(prompt_git_info)" )
-    infoline+=( "%{$fg[cyan]%}?" )
+    infoline+=( "%{$fg[cyan]%}┃" )
 
     # Append the different parts of the upper line of the prompt.
     llines=${(j::)infoline}
@@ -153,8 +152,8 @@ function setprompt()
     # Finish the design of the prompt.
     # Display a green arrow that turns red if the return code of the last
     # function is different of zero.
-    llines+=( "%{$fg[cyan]%}┗━%(?:%{$fg[green]%}:%{$fg[red]%})${at_normal} ")
-    rlines="%{$fg[yellow]%}~/ ${at_normal} "
+    llines+=( "%{$fg[cyan]%}┗━%(?:%{$fg[green]%}:%{$fg[red]%})>%{$fg[default]%} ")
+    rlines="%{$fg[yellow]%}~/ %{$fg[default]%} "
 
     PROMPT=${(F)llines}
     RPROMPT=${(F)rlines}
@@ -271,7 +270,7 @@ alias tree='tree -C'
 
     # }}}
 #PLUGINS {{{
-# source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /$HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # requires bat to work
