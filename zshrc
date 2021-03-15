@@ -25,10 +25,10 @@ zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 # Completion selection by menu for kill
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list always
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+# zstyle ':completion:*:*:kill:*' menu yes select
+# zstyle ':completion:*:kill:*' force-list always
+# zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # }}}
@@ -282,6 +282,13 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
 
 #FZF ** autocomplete
-source $HOME/.fzf.zsh   
+if command -v fzf &>/dev/null; then
+  # Auto-completion
+  [[ $- == *i* ]] &&
+    source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+
+  # Key bindings
+  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+fi
 
 # }}}
