@@ -93,12 +93,12 @@ then
 
     if [ -n "$__GIT_IS_DIRTY" ]
     then
-        loc+=""
+        loc+="🦠"
     fi
 
     if [ -n "$__GIT_HAS_DELETED_FILE" ]
     then
-        loc+=""
+        loc+="♻️"
     fi
 
     if [ -n "$__GIT_HAS_UNMERGED_FILES" ];

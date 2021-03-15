@@ -273,8 +273,15 @@ alias tree='tree -C'
 source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /$HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 # requires bat to work
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" 
+
+#Autojump
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 export PATH=$PATH:$HOME/Library/Python/3.9/bin
+
+#FZF ** autocomplete
+source $HOME/.fzf.zsh   
+
 # }}}
